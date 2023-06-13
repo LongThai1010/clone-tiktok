@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import classNames from 'classnames/bind';
+import { faCircleXmark, faSpinner, faMagnifyingGlass, faAdd } from '@fortawesome/free-solid-svg-icons';
 import styles from './Header.module.scss';
-import images from '~/assets/images';
+import classNames from 'classnames/bind';
 import 'tippy.js/dist/tippy.css'; // optional
+import images from '~/assets/images';
 import Tippy from '@tippyjs/react/headless'; // different import path!
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
+import Button from '~/components/Button';
 
 const cx = classNames.bind(styles);
 
@@ -33,9 +34,7 @@ function Header() {
                     render={(attrs) => (
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                             <PopperWrapper>
-                                <h4 className={cx('search-title')}>
-                                    Account
-                                </h4>
+                                <h4 className={cx('search-title')}>Account</h4>
                                 <AccountItem />
                                 <AccountItem />
                                 <AccountItem />
@@ -56,7 +55,12 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('actions')}></div>
+                <div className={cx('actions')}>
+                    <Button outline leftIcon={<FontAwesomeIcon icon={faAdd} />}>Upload</Button>
+                    <Button primary className={cx('custom-login')}>
+                        Log in
+                    </Button>
+                </div>
             </div>
         </header>
     );
