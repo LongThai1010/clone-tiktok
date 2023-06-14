@@ -3,14 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleXmark,
     faSpinner,
-    faMagnifyingGlass,
     faAdd,
     faEllipsisVertical,
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
-    faCloudUpload,
-    faMessage,
     faUser,
     faCoins,
     faGear,
@@ -26,6 +23,8 @@ import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import { MessageIcon, SearchIcon, UploadIcon } from '~/components/Icons';
+import Images from '~/components/Images';
 
 const cx = classNames.bind(styles);
 const currentUser = true;
@@ -140,7 +139,7 @@ function Header() {
                         <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
 
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -150,12 +149,12 @@ function Header() {
                         <>
                             <Tippy delay={[0, 200]} content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
 
                             <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faMessage} />
+                                <MessageIcon />
                             </button>
                         </>
                     ) : (
@@ -171,7 +170,7 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Images
                                 className={cx('user-avatar')}
                                 src="https://scontent.fhan14-2.fna.fbcdn.net/v/t39.30808-6/266555495_1088418351983202_9171577576454690549_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=e3f864&_nc_ohc=ot8mRFOvHHMAX-RtjJo&_nc_ht=scontent.fhan14-2.fna&oh=00_AfCJSFU6n6fTyiyqR8vlT08c6oifntKfZ837bHDJrSjWiw&oe=648DF2E8"
                                 alt="lt"
