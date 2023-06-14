@@ -1,6 +1,15 @@
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass, faAdd } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleXmark,
+    faSpinner,
+    faMagnifyingGlass,
+    faAdd,
+    faEllipsisVertical,
+    faEarthAsia,
+    faCircleQuestion,
+    faKeyboard,
+} from '@fortawesome/free-solid-svg-icons';
 import styles from './Header.module.scss';
 import classNames from 'classnames/bind';
 import 'tippy.js/dist/tippy.css'; // optional
@@ -9,8 +18,26 @@ import Tippy from '@tippyjs/react/headless'; // different import path!
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
+import Menu from '~/components/Popper/Menu';
 
 const cx = classNames.bind(styles);
+const MENU_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faEarthAsia} />,
+        title: 'English',
+    },
+    
+    {
+        icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+        title: 'Feedback and help',
+        to: '/feedback'
+    },
+
+    {
+        icon: <FontAwesomeIcon icon={faKeyboard} />,
+        title: 'Keyboard shortcut',
+    },
+];
 
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
@@ -56,10 +83,18 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('actions')}>
-                    <Button outline leftIcon={<FontAwesomeIcon icon={faAdd} />}>Upload</Button>
+                    <Button outline leftIcon={<FontAwesomeIcon icon={faAdd} />}>
+                        Upload
+                    </Button>
                     <Button primary className={cx('custom-login')}>
                         Log in
                     </Button>
+
+                    <Menu items={MENU_ITEMS}>
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Menu>
                 </div>
             </div>
         </header>
