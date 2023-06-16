@@ -3,7 +3,7 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless'; // different import path!
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import * as searchSevevice from '~/apiServices/searchServices';
+import * as searchSevevice from '~/Services/searchService';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import { SearchIcon } from '~/components/Icons';
