@@ -1,3 +1,4 @@
+import propTypes from 'prop-types'; // ES6
 import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,5 +22,9 @@ function AccountItem({ data }) {
         </Link>
     );
 }
+
+AccountItem.propTypes = {
+    data: propTypes.object.isRequired,
+};
 
 export default AccountItem;
