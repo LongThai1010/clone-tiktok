@@ -1,4 +1,3 @@
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faAdd,
@@ -21,6 +20,8 @@ import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Images from '~/components/Images';
 import Search from '../Search';
+import { Link } from 'react-router-dom';
+import routesConfig from '~/config/routes';
 
 const cx = classNames.bind(styles);
 const currentUser = true;
@@ -58,9 +59,6 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
-
-    
-
     // Handle logic
     const handleMenuChange = (menuItem) => {
         switch (menuItem.type) {
@@ -103,11 +101,11 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <div className={cx('logo')}>
+                <Link to={routesConfig.home} className={cx('logo')}>
                     <img src={images.logo} alt="tiktok logo" />
-                </div>
+                </Link>
 
-               <Search />
+                <Search />
 
                 <div className={cx('actions')}>
                     {currentUser ? (
