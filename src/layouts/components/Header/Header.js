@@ -131,7 +131,7 @@ function Header() {
                             <Button outline leftIcon={<FontAwesomeIcon icon={faAdd} />}>
                                 Upload
                             </Button>
-                            <Button primary className={cx('custom-login')}>
+                            <Button primary to="/" className={cx('custom-login')}>
                                 Log in
                             </Button>
                         </>
